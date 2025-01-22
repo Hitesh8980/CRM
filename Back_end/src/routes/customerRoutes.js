@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 router.post('/', authMiddleware, validateCustomer, handleValidationErrors, createCustomer);
-router.get('/', authMiddleware, getCustomers);
+router.get('/', getCustomers);
 router.put('/:id', updateCustomer);
 router.delete('/:id', deleteCustomer);
 
