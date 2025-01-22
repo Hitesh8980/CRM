@@ -29,7 +29,7 @@ exports.createCustomer = async (req, res) => {
 
 // Get Customers with Search, Filtering, and Pagination
 exports.getCustomers = async (req, res) => {
-    const { search, company,phone, page = 1, limit = 10 } = req.query;
+    const { search,name, company,phone, page = 1, limit = 10 } = req.query;
 
     const pageNumber = parseInt(page);
     const limitNumber = parseInt(limit);
@@ -48,6 +48,7 @@ exports.getCustomers = async (req, res) => {
     }
     if (company) query.company = company;
     if (phone) query.phone = phone;
+    if(name) query.name=name;
 
     try {
         const skip = (pageNumber - 1) * limitNumber;
